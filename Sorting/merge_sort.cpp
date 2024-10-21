@@ -40,6 +40,7 @@ void merge(int a[], int left, int mid, int right) {
         i1++;
         k++;
     }
+    // Copy nhung phan tu cua mang ben phai chua duoc vao
     while(i2 < len_right) {
         a[k] = a_right[i2];
         i2++;

@@ -198,6 +198,34 @@ void xuatPhanTuCucDaiVaCucTieu(int **a, int n) {
     }
 }
 
+int tongPhanTuNhoNhatTrenDong(int **a,int n) {
+    int sum =0;
+    for (int i =0; i < n; i++) {
+        int min = a[i][0];
+        for (int j =1; j  <n;j++) {
+            if (a[i][j] < min) {
+                min = a[i][j];
+            }
+        }
+        sum += min;
+    }
+    return sum;
+}
+
+int tongPhanTuLonNhatTrenCot(int **a, int n) {
+    int sum = 0;
+    for (int j =0; j < n;j++) {
+        int max = a[0][j];
+        for (int i = 1; i < n;i++) {
+            if (a[i][j] > max) {
+                max = a[i][j];
+            }
+        }
+        sum += max;
+    }
+    return sum;    
+}
+
 int main() {
     int n;
     int **a;
@@ -221,10 +249,12 @@ int main() {
     //printf("Tong tam giac duoi duong cheo chinh: %d\n", tongTamGiacDuoiDuongCheoChinh(a, n));
     //printf("Tong duong cheo chinh: %d\n",tongDuongCheoChinh(a,n));
     //printf("Tong duong cheo phu: %d\n",tongDuongCheoPhu(a,n));
+    //xuatPhanTuHoangHau(a,n);
+    //xuatPhanTuYenNgua(a,n);
+    //xuatPhanTuCucDaiVaCucTieu(a,n);
     
-    xuatPhanTuHoangHau(a,n);
-    xuatPhanTuYenNgua(a,n);
-    xuatPhanTuCucDaiVaCucTieu(a,n);
+    printf("Tong cac phan tu nho nhat tren dong: %d\n",tongPhanTuNhoNhatTrenDong(a,n));
+    printf("Tong cac phan tu lon nhat tren cot: %d\n",tongPhanTuLonNhatTrenCot(a,n));
     // Giải phóng bộ nhớ
     for (int i = 0; i < n; i++) {
         free(a[i]);
